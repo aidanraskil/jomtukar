@@ -13,8 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('guest');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tetapan/profil', 'SettingController@getProfile')->name('profile.edit');
+Route::put('/tetapan/profil', 'SettingController@postProfile')->name('profile.update');
+Route::post('/tetapan/gambar', 'SettingController@postPicture')->name('picture');

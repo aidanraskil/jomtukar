@@ -8,7 +8,94 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+a {
+	color: #797572;
+	text-decoration: none;
+}
+
+a:hover {
+    color: #797572;
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+        font-family: Flaticon;
+        // font-size: 12px;
+        font-style: normal;
+        margin-left: 1px;
+        color: #333;
+    }
+
 .navbar-mutual {
   background-color: #fff;
-  border-bottom: 1px solid #e1dbd0;
+  border: 1px solid #dfdfdf;
+}
+
+.start {
+	 border-style: dashed;
+	 background-color: transparent;
+}
+
+.card.hovercard .cardheader {
+    background: url("/img/bgimage.svg");
+    background-size: cover;
+    height: 60px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    left: 1rem;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.round {
+	border-radius: 1rem;
+}
+
+.photo {
+	 border: 2px solid #dfdfdf;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.form-label {
+	font-weight: 600;
+}
+
+.custom-file-input ~ .custom-file-label::after {
+    content: "Cari";
+}
+
+.list-group-item.active {
+    font-weight: 600;
+    color: #24292e;
+    cursor: default;
+    border-bottom-color : #dfdfdf;
+    background-color: #fff;
+}
+
+.list-group-item.active::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    content: "";
+    background-color: #e36209;
+}
+
+.figure-img {
+	border: 1px solid #dfdfdf;
 }
