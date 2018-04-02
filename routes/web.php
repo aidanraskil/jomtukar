@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tetapan/profil', 'SettingController@getProfile')->name('profile.edit');
 Route::put('/tetapan/profil', 'SettingController@postProfile')->name('profile.update');
 Route::post('/tetapan/gambar', 'SettingController@postPicture')->name('picture');
+
+Route::get('/profil/tambah', 'ProfileController@create')->name('profile.create');
+Route::post('/profil', 'ProfileController@store')->name('profile.store');
+

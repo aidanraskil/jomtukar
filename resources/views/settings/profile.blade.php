@@ -47,7 +47,7 @@
 								@csrf
 								<div class="form-group">
 									<label for="photo" class="form-label">Gambar Profil</label>
-									<img src="https://spark.laravel.com/storage/profiles/IER8ef8QpwKd46uFlnP6tEc6mcLp92i5WA2ad40M.jpeg" class="figure-img img-fluid rounded" alt="">
+									<img src="/img/profilepicture.jpeg" class="figure-img img-fluid rounded" alt="">
 									<div class="custom-file" id="customFile" lang="es">
 										<input type="file" class="custom-file-input" id="photo">
 										<label class="custom-file-label" for="exampleInputFile">

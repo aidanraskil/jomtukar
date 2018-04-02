@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Profile;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+
+        $best_profiles = Profile::where('position', $user->profiles->first()->position)->where('district_to', $user->profiles->first()->district_from)
+            ->where('state_to', $user->profiles->first()->state_from)->get();
+
+            // dd($best_profiles->pluck('id'));
+
+        $profiles = Profile::where('user_id', '!=', $best_profiles->pluck('id'))->where('state_to', $user->profiles->first()->state_from)->get();
+
+        return view('home', compact('user', 'best_profiles', 'profiles'));
     }
 }
