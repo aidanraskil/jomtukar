@@ -32,7 +32,7 @@ class HomeController extends Controller
 
             // dd($best_profiles->pluck('id'));
 
-        $profiles = Profile::where('user_id', '!=', $best_profiles->pluck('id'))->where('state_to', $user->profiles->first()->state_from)->get();
+        $profiles = Profile::where('state_to', $user->profiles->first()->state_from)->get();
 
         return view('home', compact('user', 'best_profiles', 'profiles'));
     }
