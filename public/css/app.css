@@ -10013,6 +10013,10 @@ a:hover {
   color: #333;
 }
 
+.nav-link {
+  padding: 0 0.2rem;
+}
+
 .navbar-mutual {
   background-color: #fff;
   border: 1px solid #dfdfdf;

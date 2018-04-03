@@ -37,15 +37,14 @@
 					</div>
 				@else
 					<p>Profil pertukaran anda tidak dijumpai.</p>
-					<p>Sila klik <a href="{{ route('profile.create') }}" class="text-primary">di sini</a> untuk mencipta profil pertukaran anda.</p>
 				</div>
 				@endif
 			</div>
 		</div>
-		<div class="col-md-6">
-			<h3 class="text-center">Terbaik Untuk Anda</h3>
-			<hr>
+		<div class="col-md-6">			
 			@if($best_profiles->count() > 0 )
+				<h3 class="text-center">Terbaik Untuk Anda</h3>
+				<hr>
 				<div class="row mt-4">
 					@foreach($best_profiles as $profile)
 					<div class="col-md-6">
@@ -76,9 +75,9 @@
 					</div>
 				</div>
 			@endif
-			<h3 class="text-center">Ke Negeri Yang Sama</h3>
-			<hr>
 			@if($profiles->count() > 0 )
+				<h3 class="text-center">Ke Negeri Yang Sama</h3>
+				<hr>
 				<div class="row">
 					@foreach($profiles as $profile)
 					<div class="col-md-6">
@@ -101,19 +100,30 @@
 					</div>
 					@endforeach
 				</div>
-			@else
-				<div class="card start mb-4">
-					<div class="card-body text-center">
-						Anda perlu membina profil pertukaran terlebih dahulu. Sila klik butang mula dibawah untuk bermula. <br>
-						<a href="{{ route('profile.create') }}" class="btn btn-primary round">Mula</a>
-					</div>
-				</div>
 			@endif
 		</div>
 		<div class="col-md-3">
 			<div class="card">
-				<div class="card-body">
-
+				<div class="card-body text-center">
+					<p class="lead">Ruangan Iklan</p>
+				</div>
+				<div class="card-footer bg-white text-center">
+					<ul class="nav text-center" style="font-size: 80%;">
+						<li class="nav-item">
+							&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}
+						</li>
+						{{-- <li class="nav-item">
+						<a class="nav-link" href="#">Tentang Kami</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" href="#">Pusat Bantuan</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" href="#">Terma &amp; Syarat</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link disabled" href="#">Polisi Peribadi</a>
+						</li> --}}
 				</div>
 			</div>
 		</div>
