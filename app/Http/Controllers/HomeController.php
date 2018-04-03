@@ -27,12 +27,11 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        $best_profiles = Profile::where('position', $user->profiles->first()->position)->where('district_to', $user->profiles->first()->district_from)
-            ->where('state_to', $user->profiles->first()->state_from)->get();
+        $best_profiles = Profile::all();
 
             // dd($best_profiles->pluck('id'));
 
-        $profiles = Profile::where('state_to', $user->profiles->first()->state_from)->get();
+        $profiles = Profile::all();
 
         return view('home', compact('user', 'best_profiles', 'profiles'));
     }

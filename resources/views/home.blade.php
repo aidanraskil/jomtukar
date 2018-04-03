@@ -10,8 +10,11 @@
 				<div class="text-center p-4" style="background: url('/img/bgimage.svg'); background-size: cover;">
 					<img class="img-fluid" alt="" src="/img/profilepicture.jpeg" style="border-radius: 50%;border: 5px solid rgba(255,255,255,0.5);">
 				</div>
-				{{-- <div class="card-body"></div> --}}
-				<ul class="list-group list-group-flush">
+				<div class="card-body">
+					<h4><strong>{{ $user->name }}</strong></h4>
+				</div>
+				@if($user->profiles->count() > 0)
+					<ul class="list-group list-group-flush">
 					<li class="list-group-item">
 						<span>Jawatan</span> <span class="float-right">{{ $user->profiles->first()->position }}</span>
 					</li>
@@ -30,6 +33,9 @@
 					<li class="list-group-item">
 						<i class="flaticon-sign-1"></i> {{ $profile->district_to ? $profile->district_to.', ' : '' }} {{ $profile->stateto->name }}
 					</li> --}}
+				@else
+				 {{dd($user->profiles->contains($user))}}
+				@endif
 					<div class="card-footer">
 						<small class="text-muted text-right">Dipos pada {{ $user->profiles->first()->created_at->diffForHumans() }}</small>
 					</div>
