@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\State;
 use App\Profile;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('profil.create');
+    	$states = State::all();
+
+        return view('profil.create', compact('states'));
     }
 
     /**

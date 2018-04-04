@@ -47,8 +47,10 @@
                             <label for="office_from" class="col-sm-4 col-form-label text-md-right">Lokasi Pejabat Semasa</label>
                             <div class="col-sm-3">
                                 <select name="state_from" id="state_from" class="form-control{{ $errors->has('state_from') ? ' is-invalid' : '' }}">
-                                	<option value="" selected>Negeri</option>
-                                	<option value="10">Selangor</option>                                	
+                                	<option value=""  disabled selected>Negeri</option>
+                                	@foreach($states as $state)
+											<option value="{{ $state->id}}">{{ $state->name}}</strong></option>
+										@endforeach
                                 </select>
                                 @if ($errors->has('state_from'))
                                     <span class="invalid-feedback">
@@ -69,8 +71,10 @@
                             <label for="state_to" class="col-sm-4 col-form-label text-md-right">Lokasi Pejabat Diingini</label>
                             <div class="col-md-3">
                                 <select name="state_to" id="state_to" class="form-control{{ $errors->has('state_to') ? ' is-invalid' : '' }}">
-                                	<option value="" selected>Negeri</option>
-                                	<option value="16">Putrajaya</option>                                	
+                                	<option value=""  disabled selected>Negeri</option>
+                                	@foreach($states as $state)
+											<option value="{{ $state->id}}">{{ $state->name}}</strong></option>
+										@endforeach
                                 </select>
                                 @if ($errors->has('state_to'))
                                     <span class="invalid-feedback">
@@ -90,7 +94,7 @@
                         <div class="form-group row">
                             <label for="job_scope" class="col-sm-4 col-form-label text-md-right">Skop Kerja</label>
                             <div class="col-sm-7">
-                            	<textarea name="job_scope" class="form-control{{ $errors->has('job_scope') ? ' is-invalid' : '' }}" id="job_scope" cols="30" rows="5" style="resize: none;"></textarea>                     
+                            	<textarea name="job_scope" class="form-control{{ $errors->has('job_scope') ? ' is-invalid' : '' }}" id="job_scope" cols="30" rows="5" style="resize: none;"></textarea>
                                 @if ($errors->has('job_scope'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('job_scope') }}</strong>
@@ -101,7 +105,7 @@
                         <div class="form-group row">
                             <label for="note" class="col-sm-4 col-form-label text-md-right">Nota</label>
                             <div class="col-sm-7">
-                            	<textarea name="note" class="form-control{{ $errors->has('note') ? ' is-invalid' : '' }}" id="note" cols="30" rows="3" style="resize: none;"></textarea>                     
+                            	<textarea name="note" class="form-control{{ $errors->has('note') ? ' is-invalid' : '' }}" id="note" cols="30" rows="3" style="resize: none;"></textarea>
                                 @if ($errors->has('note'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('note') }}</strong>

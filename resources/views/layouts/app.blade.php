@@ -22,10 +22,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <?php
-        setlocale(LC_TIME, 'German');
-        Carbon\Carbon::setLocale('ms');
-    ?>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-mutual">
             <div class="container">
