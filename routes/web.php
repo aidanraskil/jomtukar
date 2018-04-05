@@ -25,3 +25,5 @@ Route::post('/tetapan/gambar', 'SettingController@postPicture')->name('picture')
 Route::get('/profil/tambah', 'ProfileController@create')->name('profile.create');
 Route::post('/profil', 'ProfileController@store')->name('profile.store');
 
+Route::get('/pertukaran', 'ProfileController@index')->name('profile.index');
+

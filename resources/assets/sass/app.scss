@@ -19,11 +19,31 @@ a:hover {
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
         font-family: Flaticon;
-        // font-size: 12px;
+        font-size: 15px;
         font-style: normal;
         margin-left: 1px;
         color: #333;
     }
+
+a.card {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a.card:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.24), 0 1px 3px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+a.card button {
+  z-index: 1;
+}
+
+a.card.disabled,
+a.card[disabled] {
+  pointer-events: none;
+  opacity: .8;
+}
 
 .nav-link {
     padding: 0 0.2rem;

@@ -6,6 +6,7 @@ use Auth;
 use App\State;
 use App\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller
 {
@@ -16,7 +17,28 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+    	$states = State::select('id', 'name')->get();
+
+    	$q = Profile::query();
+
+        if(Input::has('jawatan'))
+        {
+        	$q->where('position','like','%'.Input::get('jawatan').'%');
+        }
+
+        if(Input::has('state_from'))
+        {
+        	$q->where('state_from', Input::get('state_from'));
+        }
+
+        if(Input::has('state_to'))
+        {
+        	$q->where('state_to', Input::get('state_to'));
+        }
+
+    	$profiles = $q->latest()->paginate();
+
+        return view('profile.index', compact('profiles', 'states') );
     }
 
     /**

@@ -23,10 +23,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-mutual">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <strong><span style="color: yellow;">LETS</span>TUKAR</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -45,9 +45,11 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                        	<li><a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Utama</a></li>
+                        	<li><a class="nav-link {{ Request::is('pertukaran') ? 'active' : '' }}" href="{{ route('profile.index') }}">Pertukaran</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                	  <img src="/img/profilepicture.jpeg" class="photo" width="30" height="30" alt="">
+                                	  <img src="/img/profilepicture.jpeg" class="d-inline-block align-top photo" alt="">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

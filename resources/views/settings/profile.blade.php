@@ -39,6 +39,15 @@
 										</span>
 									@endif
 								</div>
+								<div class="form-group">
+									<label for="phone" class="form-label">No. telefon untuk dihubungi</label>
+									<input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ $user->phone }}" autofocus>
+									@if ($errors->has('phone'))
+										<span class="invalid-feedback">
+										<strong>{{ $errors->first('phone') }}</strong>
+										</span>
+									@endif
+								</div>
 								<button type="submit" class="btn btn-primary">KEMASKINI</button>
 							</form>
 						</div>

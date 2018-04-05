@@ -65,9 +65,13 @@
 						</div>
 					</div>
 				@else
-					<div class="card start mb-4">
-						<div class="card-body text-center">
-							<p class="lead">Maaf, tiada padanan sesuai dengan profil pertukaran anda buat masa ini.</p>
+					<div class="card">
+						<div class="card-body">
+							<div class="card  border-info start">
+								<div class="card-body text-center">
+									<p class="lead" style="margin-bottom: 0;">Maaf, tiada padanan sesuai dengan profil pertukaran anda buat masa ini.</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				@endif
