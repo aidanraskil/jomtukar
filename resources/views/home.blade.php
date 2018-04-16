@@ -12,7 +12,7 @@
 				<div class="cardheader">
 				</div>
 				<div class="avatar text-center">
-					<img alt="" src="/img/profilepicture.jpeg">
+					<img alt="" src="{{ $user->avatar }}">
 				</div>
 				<div class="card-body text-center">
 					<p><strong>{{ $user->name }}</strong></p>
@@ -51,7 +51,7 @@
 								<li class="media p-2" style="border-bottom: solid #ededede;">
 									<img class="mavatar align-self-center mr-3" src="/img/profilepicture.jpeg" alt="Generic placeholder image">
 									<div class="media-body">
-										<strong>{{ $profile->user->name }}</strong><br>
+										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br>
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>
 										<small>
 											{{ $profile->district_from }} &#8226; {{ $profile->statefrom->name }}
@@ -85,7 +85,7 @@
 								<li class="media p-2" style="border-bottom: solid #ededede;">
 									<img class="mavatar align-self-center mr-3" src="/img/profilepicture.jpeg" alt="Generic placeholder image">
 									<div class="media-body">
-										<strong>{{ $profile->user->name }}</strong><br>
+										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br>
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>
 										<small>
 											{{ $profile->district_from }} &#8226; {{ $profile->statefrom->name }}
@@ -111,7 +111,7 @@
 		<div class="col-md-3">
 			<div class="card">
 				<div class="card-body text-center">
-					<p class="lead">Ruangan Iklan</p>
+					{{-- <p class="lead">Ruangan Iklan</p> --}}
 				</div>
 				<div class="card-footer bg-white text-center">
 					<small class="text-muted">

@@ -52,13 +52,13 @@
 							</form>
 						</div>
 						<div class="col-md-4">
-							<form method="POST" action="{{ route('picture') }}">
+							<form id="gam" method="POST" action="{{ route('picture') }}" enctype="multipart/form-data">
 								@csrf
 								<div class="form-group">
-									<label for="photo" class="form-label">Gambar Profil</label>
-									<img src="/img/profilepicture.jpeg" class="figure-img img-fluid rounded" alt="">
+									<label for="photo" class="form-label">Gambar Profil</label><br>
+									<img id="avatar" src="{{ $user->avatar }}" class="figure-img img-fluid rounded" alt="">
 									<div class="custom-file" id="customFile" lang="es">
-										<input type="file" class="custom-file-input" id="photo">
+										<input type="file" name="avatar" class="custom-file-input" id="photo" onchange="readURL(this);submitForm();">
 										<label class="custom-file-label" for="exampleInputFile">
 										Pilih gambar...
 										</label>
@@ -71,4 +71,26 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('js')
+<script>
+ 	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#avatar')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function submitForm()
+	{
+	    $('#gam').submit();
+	}
+</script>
 @endsection

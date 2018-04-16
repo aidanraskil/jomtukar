@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\User;
+use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -29,5 +30,20 @@ class SettingController extends Controller
     	flash('Profil telah berjaya dikemaskini')->success();
 
     	return back();
+    }
+
+    public function postPicture(Request $request)
+    {
+        $user = Auth::user();
+
+        if($user->getMedia('avatars')->count() > 0){
+            $user->deleteMedia(Media::first()->id);
+        }
+        
+        if (isset($request->avatar)) {
+            $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
+        }
+
+        return back();
     }
 }

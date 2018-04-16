@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\Models\Media;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use Notifiable;
+    use Notifiable, HasMediaTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -30,5 +33,26 @@ class User extends Authenticatable
     public function profiles()
     {
         return $this->hasMany(Profile::class);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+            ->width(50)
+            ->height(50);
+    }
+
+    public function getAvatarAttribute() {
+
+       $pathToPlaceholder = '/img/profilepicture.jpeg';
+
+       return $this->getMedia('avatars')->count() > 0 ? $this->getMedia('avatars')->first()->getUrl() : $pathToPlaceholder;
+    }
+
+    public function getThumbvatarAttribute() {
+
+       $pathToPlaceholder = '/img/profilepicture.jpeg';
+
+       return $this->getMedia('avatars')->count() > 0 ? $this->getMedia('avatars')->first()->getUrl('thumb') : $pathToPlaceholder;
     }
 }

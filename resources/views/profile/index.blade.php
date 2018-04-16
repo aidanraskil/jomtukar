@@ -37,11 +37,12 @@
 	<div class="card">
 		<div class="card-body">
 			<h5>Profil pertukaran terkini</h5>
+			<small>Paparkan {{ $profiles->count() }} dari {{ $profiles->total() }}</small>
 			<div class="card-columns mt-4">
 				@foreach($profiles as $profile)
 					<a href="#" class="card mb-3">
 						<div class="card-body">
-							<img src="/img/profilepicture.jpeg" class="mb-1" height="30" width="30" alt=""><br>
+							<img src="{{ $profile->user->thumbvatar }}" class="mb-1" height="30" width="30" alt=""><br>
 								<p>
 									<strong>{{ $profile->user->name }}</strong><br>
 									{{ $profile->office }} <br>
@@ -52,6 +53,9 @@
 						</div>
 					</a>
 				@endforeach
+			</div>
+			<div class="pull-center">
+				{{ $profiles->appends(request()->except('page'))->links() }}
 			</div>
 		</div>
 	</div>

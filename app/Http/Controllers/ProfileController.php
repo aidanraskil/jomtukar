@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\User;   
 use App\State;
 use App\Profile;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class ProfileController extends Controller
         	$q->where('state_to', Input::get('state_to'));
         }
 
-    	$profiles = $q->latest()->paginate();
+    	$profiles = $q->latest()->paginate(20);
 
         return view('profile.index', compact('profiles', 'states') );
     }
@@ -87,7 +88,9 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('profile.show', compact('user'));
     }
 
     /**

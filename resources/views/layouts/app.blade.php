@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -49,7 +50,7 @@
                         	<li><a class="nav-link {{ Request::is('pertukaran') ? 'active' : '' }}" href="{{ route('profile.index') }}">Pertukaran</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                	  <img src="/img/profilepicture.jpeg" class="d-inline-block align-top photo" alt="">
+                                	  <img src="{{ Auth::user()->avatar }}" class="d-inline-block align-top photo" alt="">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -76,5 +77,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('js')
 </body>
 </html>
