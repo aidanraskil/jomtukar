@@ -23,7 +23,7 @@
 					</small>
 					</div>
 					<div class="card-body text-center" style="padding: 1rem;border-top: 1px solid rgba(0, 0, 0, 0.125);">
-						{{-- <div class="ka text-info"><h1>{{ $best_profiles->count() }}</h1></div> --}}
+						<div class="ka text-info"><h1>{{ $best_profiles->count() }}</h1></div>
 						<div class="pa" style="font-size: 80%; margin-top: -0.5rem;">Padanan</div>
 					</div>
 					<div class="card-footer">
@@ -34,6 +34,46 @@
 				</div>
 				@endif
 			</div>
+		</div>
+		<div class="col-md-6">
+			@if($threads->count() > 0)
+				<div class="card">
+					<div class="card-body">
+						<h3>Mesej</h3>
+						<hr>
+						<ul class="list-unstyled">
+						{{-- <ul class="list-group list-group-flush"> --}}
+	    				@each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')	
+	    				</ul>	
+    				</div>	
+				</div>
+			@else
+				<div class="card">
+					<div class="card-body">
+					<form action="{{ route('messages.store') }}" method="post">
+					{{ csrf_field() }}
+					<!-- Subject Form Input -->
+					<div class="form-group">
+					<label class="control-label">Subject</label>
+					<input type="text" class="form-control" name="subject" placeholder="Subject"
+					value="{{ old('subject') }}">
+					</div>
+					<!-- Message Form Input -->
+					<div class="form-group">
+					<label class="control-label">Message</label>
+					<textarea name="message" class="form-control">{{ old('message') }}</textarea>
+					</div>
+					<div class="checkbox">
+						<input type="hidden" name="recipients[]" value="{{ $user->id }}"></label>
+					</div>
+					<!-- Submit Form Input -->
+					<div class="form-group">
+					<button type="submit" class="btn btn-primary form-control">Submit</button>
+					</div>
+					</form>
+				</div>
+				</div>
+			@endif
 		</div>
 	</div>
 @endsection

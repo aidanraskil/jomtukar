@@ -6,6 +6,7 @@ use Auth;
 use App\User;   
 use App\State;
 use App\Profile;
+use Cmgmyr\Messenger\Models\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -90,7 +91,21 @@ class ProfileController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('profile.show', compact('user'));
+        $best_profiles = Profile::where('user_id' , '!=', $user->id)
+            ->where('position' , '=', $user->profiles->first()->position)
+            ->where('state_from', $user->profiles->first()->state_to)
+            ->where('state_to', $user->profiles->first()->state_from)
+            ->get();
+
+        $ma = Thread::forUser($user->id)->latest('updated_at')->get();
+
+        if($ma->count() > 0) {
+            $threads = Thread::forUser($user->id)->latest('updated_at')->get();
+        } else {
+            $threads = Thread::forUser($user->id)->latest('updated_at')->get();
+        }
+
+        return view('profile.show', compact('user', 'threads', 'best_profiles'));
     }
 
     /**
@@ -99,9 +114,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $profile = Auth::user()->profiles->first();
+        return view('profil.edit', compact('profile'));
     }
 
     /**

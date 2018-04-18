@@ -40,7 +40,7 @@
 			<small>Paparkan {{ $profiles->count() }} dari {{ $profiles->total() }}</small>
 			<div class="card-columns mt-4">
 				@foreach($profiles as $profile)
-					<a href="#" class="card mb-3">
+					<a href="{{ route('profile.show', $profile->user->id) }}" class="card mb-3">
 						<div class="card-body">
 							<img src="{{ $profile->user->thumbvatar }}" class="mb-1" height="30" width="30" alt=""><br>
 								<p>

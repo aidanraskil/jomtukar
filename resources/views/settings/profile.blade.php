@@ -1,19 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+<?php
+	setlocale(LC_TIME, 'My');
+	Carbon\Carbon::setLocale('ms');
+?>
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-3">
-			<div class="card">
-			<div class="card-header">Tetapan</div>
-				<div class="list-group list-group-flush">
-					<a href="#" class="list-group-item active">Profil</a>
-					<a href="#" class="list-group-item">Keselamatan</a>
-				</div>
-			</div>
+			@include('settings.partial.leftbar')
 		</div>
 		<div class="col-md-9">
-			<div class="card">
+			<div class="card mb-4">
 				<div class="card-header">Maklumat Untuk Dihubungi</div>
 				<div class="card-body">
 					<div class="row">
@@ -63,9 +61,30 @@
 										Pilih gambar...
 										</label>
 									</div>
+								</div>
 							</form>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					Profil Pertukaran
+					<a href="{{ route('profile.create') }}" class="btn btn-primary btn-sm float-sm-right">Cipta</a>
+				</div>
+				@if($user->profiles->count() > 0)
+					<div class="list-group list-group-flush">
+						@foreach($user->profiles as $profile)
+							<a href="{{ route('profile.kemaskini') }}" class="list-group-item">
+								{{ $profile->position }} &nbsp; <span class="badge badge-primary" title="Status">{{ $profile->status }}</span> <span class="float-right">dicipta pada {{ $profile->created_at->diffForHumans() }}</span>
+							</a>
+						@endforeach
+					</div>
+				@else
+					<div class="card-body">
+						
+					</div>
+				@endif
 				</div>
 			</div>
 		</div>

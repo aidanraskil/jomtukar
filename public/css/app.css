@@ -9994,6 +9994,10 @@ a.text-dark:focus {
   }
 }
 
+.alert {
+  border-radius: unset;
+}
+
 a {
   color: #797572;
   text-decoration: none;

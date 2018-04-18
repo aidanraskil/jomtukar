@@ -49,7 +49,7 @@
 							<ul class="list-unstyled">
 							@foreach($best_profiles as $profile)
 								<li class="media p-2" style="border-bottom: solid #ededede;">
-									<img class="mavatar align-self-center mr-3" src="/img/profilepicture.jpeg" alt="Generic placeholder image">
+									<img class="mavatar align-self-center mr-3" src="{{ $profile->user->thumbvatar }}" alt="Generic placeholder image">
 									<div class="media-body">
 										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br>
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>
@@ -83,7 +83,7 @@
 							<ul class="list-unstyled">
 							@foreach($profiles as $profile)
 								<li class="media p-2" style="border-bottom: solid #ededede;">
-									<img class="mavatar align-self-center mr-3" src="/img/profilepicture.jpeg" alt="Generic placeholder image">
+									<img class="mavatar align-self-center mr-3" src="{{ $profile->user->thumbvatar }}" alt="Generic placeholder image">
 									<div class="media-body">
 										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br>
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>

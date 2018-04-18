@@ -48,6 +48,7 @@
                         @else
                         	<li><a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Utama</a></li>
                         	<li><a class="nav-link {{ Request::is('pertukaran') ? 'active' : '' }}" href="{{ route('profile.index') }}">Pertukaran</a></li>
+                            <li><a class="nav-link {{ Request::is('mesej') ? 'active' : '' }}" href="/mesej">Messages @include('messenger.unread-count')</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 	  <img src="{{ Auth::user()->avatar }}" class="d-inline-block align-top photo" alt="">
