@@ -18,7 +18,7 @@
 					<p><strong>{{ $user->name }}</strong></p>
 				@if($user->profiles->count() > 0)
 					<small>
-						<p>{{ $user->profiles->first()->position }} gred {{ $user->profiles->first()->grade }} di {{ $user->profiles->first()->office }}</p>
+						<p>{{ $user->profiles->first()->position }} gred {{ $user->profiles->first()->grade }} {!! $user->profiles->first()->office ? 'di '.$user->profiles->first()->office : '' !!}</p>
 						<p style="margin-bottom: 0;">
 						{{ $user->profiles->first()->district_from }} &#8226; {{ $user->profiles->first()->statefrom->name }} <br>
 						<i class="flaticon-repeat" data-toggle="tooltip" data-placement="top" title="Ingin bertukar ke"></i> <br>
@@ -51,12 +51,13 @@
 								<li class="media p-2" style="border-bottom: solid #ededede;">
 									<img class="mavatar align-self-center mr-3" src="{{ $profile->user->thumbvatar }}" alt="Generic placeholder image">
 									<div class="media-body">
-										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br>
+										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br> 
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>
 										<small>
 											{{ $profile->district_from }} &#8226; {{ $profile->statefrom->name }}
 											<span data-toggle="tooltip" data-placement="top" title="Ingin bertukar ke">&#8596;</span>
-											{{ $profile->district_to }} &#8226; {{ $profile->stateto->name }}
+											{!! $profile->district_to ? $profile->district_to.' &#8226;' : '' !!}
+											{{ $profile->stateto->name }}
 										</small>
 									</div>
 								</li>

@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Input;
 class ProfileController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -66,7 +76,7 @@ class ProfileController extends Controller
         $this->validate($request, [
             'position'  =>  'required',
             'grade' =>  'required',
-            'office'    =>  'required',
+            // 'office'    =>  'required',
             'state_from'    =>  'required',
             'district_from' =>  'required',
             'state_to'  => 'required',
@@ -90,6 +100,11 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+
+        if($user->profiles->count() <= 0){
+            flash('Pengguna masih belum mencipta profil pertukaran')->info();
+            return redirect()->route('home');
+        }
 
         $best_profiles = Profile::where('user_id' , '!=', $user->id)
             ->where('position' , '=', $user->profiles->first()->position)

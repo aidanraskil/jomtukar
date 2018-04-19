@@ -36,8 +36,8 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			@if($threads->count() > 0)
-				<div class="card">
+			{{-- @if($threads->count() > 0) --}}
+				<div class="card mb-4">
 					<div class="card-body">
 						<h3>Mesej</h3>
 						<hr>
@@ -47,33 +47,31 @@
 	    				</ul>	
     				</div>	
 				</div>
-			@else
+			{{-- @else --}}
 				<div class="card">
 					<div class="card-body">
 					<form action="{{ route('messages.store') }}" method="post">
 					{{ csrf_field() }}
 					<!-- Subject Form Input -->
 					<div class="form-group">
-					<label class="control-label">Subject</label>
-					<input type="text" class="form-control" name="subject" placeholder="Subject"
+					<input type="text" class="form-control" name="subject" placeholder="Perkara"
 					value="{{ old('subject') }}">
 					</div>
 					<!-- Message Form Input -->
 					<div class="form-group">
-					<label class="control-label">Message</label>
-					<textarea name="message" class="form-control">{{ old('message') }}</textarea>
+					<textarea name="message" placeholder="Mesej" class="form-control" rows="3" style="resize: none;">{{ old('message') }}</textarea>
 					</div>
 					<div class="checkbox">
 						<input type="hidden" name="recipients[]" value="{{ $user->id }}"></label>
 					</div>
 					<!-- Submit Form Input -->
 					<div class="form-group">
-					<button type="submit" class="btn btn-primary form-control">Submit</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
 					</form>
 				</div>
 				</div>
-			@endif
+			{{-- @endif --}}
 		</div>
 	</div>
 @endsection

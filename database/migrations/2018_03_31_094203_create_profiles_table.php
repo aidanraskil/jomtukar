@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('position');
             $table->string('grade');
-            $table->string('office');
+            $table->string('office')->nullable();
             $table->integer('state_from');
             $table->string('district_from');
             $table->integer('state_to');

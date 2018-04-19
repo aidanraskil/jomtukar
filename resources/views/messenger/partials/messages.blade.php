@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">{{ $message->user->name }} mesej pada {{ $message->created_at->diffForHumans() }}</div>
             <div class="card-body">
-                {{ $message->body }}
+                {!! nl2br($message->body) !!}
             </div>
         </div>    
     </div>
