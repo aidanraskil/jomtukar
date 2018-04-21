@@ -1,4 +1,4 @@
 <?php $count = Auth::user()->newThreadsCount(); ?>
 @if($count > 0)
-    <span class="label label-danger">{{ $count }}</span>
+    <span class="badge badge-pill badge-danger">{{ $count }}</span>
 @endif

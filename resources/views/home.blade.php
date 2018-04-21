@@ -49,7 +49,7 @@
 							<ul class="list-unstyled">
 							@foreach($best_profiles as $profile)
 								<li class="media p-2" style="border-bottom: solid #ededede;">
-									<img class="mavatar align-self-center mr-3" src="{{ $profile->user->thumbvatar }}" alt="Generic placeholder image">
+									<img class="mavatar mr-2 mt-1" src="{{ $profile->user->thumbvatar }}" alt="Generic placeholder image">
 									<div class="media-body">
 										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br> 
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>
@@ -112,13 +112,15 @@
 		<div class="col-md-3">
 			<div class="card">
 				<div class="card-body text-center">
-					{{-- <p class="lead">Ruangan Iklan</p> --}}
-				</div>
-				<div class="card-footer bg-white text-center">
 					<small class="text-muted">
 						&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}
 					</small>
 				</div>
+{{-- 				<div class="card-footer bg-white text-center">
+					<small class="text-muted">
+						&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}
+					</small>
+				</div> --}}
 			</div>
 		</div>
 	</div>
