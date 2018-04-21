@@ -21,6 +21,10 @@ a:hover {
     color: #797572;
 }
 
+.dropdown-toggle::after {
+    display:none;
+}
+
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
         font-family: Flaticon;
         font-size: 15px;

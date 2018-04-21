@@ -45,10 +45,10 @@
 							<img src="{{ $profile->user->thumbvatar }}" class="mb-1" height="30" width="30" alt=""><br>
 								<p>
 									<strong>{{ $profile->user->name }}</strong><br>
-									{{ $profile->office }} <br>
+									{!! $profile->office ? $profile->office.'<br>' : '' !!}
 									{{ $profile->position }} gred {{ $profile->grade }}<br>
 									<i class="flaticon-placeholder" data-toggle="tooltip" data-placement="top" title="Dari"></i> {{ $profile->district_from }} &#8226; {{ $profile->statefrom->name }} <br>
-									<i class="flaticon-placeholders" data-toggle="tooltip" data-placement="top" title="Ke"></i> {{ $profile->district_to }} &#8226; {{ $profile->stateto->name }}
+									<i class="flaticon-placeholders" data-toggle="tooltip" data-placement="top" title="Ke"></i> {!! $profile->district_to ? $profile->district_to.' &#8226;' : '' !!}  {{ $profile->stateto->name }}
 								</p>
 						</div>
 					</a>

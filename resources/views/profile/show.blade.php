@@ -3,41 +3,50 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-9">
 			<div class="card hovercard">
-				<div class="cardheader">
+				<div class="cardheader" style="height: 100px;">
 				</div>
-				<div class="avatar text-center">
-					<img alt="" src="{{ $user->avatar }}">
+				<div class="avatar text-center" style="top: -70px; margin-bottom: -80px;">
+					<img alt="" style="max-width: 150px; width: 150px; max-height: 150px; height: 160px;" src="{{ $user->avatar }}">
 				</div>
 				<div class="card-body text-center">
-					<p><strong>{{ $user->name }}</strong></p>
+					<h4><strong>{{ $user->name }}</strong></h4>
 				@if($user->profiles->count() > 0)
-					<small>
-						<p>{{ $user->profiles->first()->position }} gred {{ $user->profiles->first()->grade }} di {{ $user->profiles->first()->office }}</p>
-						<p style="margin-bottom: 0;">
-						{{ $user->profiles->first()->district_from }} &#8226; {{ $user->profiles->first()->statefrom->name }} <br>
-						<i class="flaticon-repeat" data-toggle="tooltip" data-placement="top" title="Ingin bertukar ke"></i> <br>
+	
+						{{ $user->profiles->first()->position }} gred {{ $user->profiles->first()->grade }} {!! $user->profiles->first()->office ? 'di '.$user->profiles->first()->office : '' !!} <br>
+						{{ $user->profiles->first()->district_from }} &#8226; {{ $user->profiles->first()->statefrom->name }}
+					<br>
+					<i class="flaticon-repeat" data-toggle="tooltip" data-placement="top" title="Ingin bertukar ke"></i> <br>
 						{!! $user->profiles->first()->district_to ? $user->profiles->first()->district_to.' &#8226;' : '' !!}  {{ $user->profiles->first()->stateto->name }} <br>
-						</p>
-					</small>
+						<div style="position: relative;">
+							<a href="#" class="btn btn-primary mt-3">Mesej</a>
+							<div class="btn-group mt-3">
+								<button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Lagi...
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="card-body text-center" style="padding: 1rem;border-top: 1px solid rgba(0, 0, 0, 0.125);">
-						<div class="ka text-info"><h1>{{ $best_profiles->count() }}</h1></div>
-						<div class="pa" style="font-size: 80%; margin-top: -0.5rem;">Padanan</div>
-					</div>
-					<div class="card-footer">
-						{{-- <small class="text-muted text-right">Dicipta pada {{ $user->profiles->first()->created_at->diffForHumans() }}</small> --}}
-					</div>
+					@if($user->profiles->first()->job_scope)
+						<div class="card-body text-center" style="border-top: 1px solid rgba(0, 0, 0, 0.125);">
+								<strong>Skop Kerja</strong><br>
+								{{ $user->profiles->first()->job_scope }}
+						</div>
+					@endif
 				@else
 					<p>Profil pertukaran anda tidak dijumpai.</p>
 				</div>
 				@endif
 			</div>
 		</div>
-		<div class="col-md-6">
-			@if($threads->count() > 0)
-				<div class="card">
+		<div class="col-md-3">
+				<div class="card mb-4">
 					<div class="card-body">
 						<h3>Mesej</h3>
 						<hr>
@@ -47,33 +56,6 @@
 	    				</ul>	
     				</div>	
 				</div>
-			@else
-				<div class="card">
-					<div class="card-body">
-					<form action="{{ route('messages.store') }}" method="post">
-					{{ csrf_field() }}
-					<!-- Subject Form Input -->
-					<div class="form-group">
-					<label class="control-label">Subject</label>
-					<input type="text" class="form-control" name="subject" placeholder="Subject"
-					value="{{ old('subject') }}">
-					</div>
-					<!-- Message Form Input -->
-					<div class="form-group">
-					<label class="control-label">Message</label>
-					<textarea name="message" class="form-control">{{ old('message') }}</textarea>
-					</div>
-					<div class="checkbox">
-						<input type="hidden" name="recipients[]" value="{{ $user->id }}"></label>
-					</div>
-					<!-- Submit Form Input -->
-					<div class="form-group">
-					<button type="submit" class="btn btn-primary form-control">Submit</button>
-					</div>
-					</form>
-				</div>
-				</div>
-			@endif
 		</div>
 	</div>
 @endsection

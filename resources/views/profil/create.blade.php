@@ -116,13 +116,11 @@
                                 </span>
                             @endif
                         </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Simpan
-                                </button>
-                                <a href="{{ route('home') }}" class="btn btn-outline-secondary">Batal</a>
-                            </div>
+                        <div class="form-group float-right mb-0">
+                            <a href="{{ route('home') }}" class="btn btn-outline-secondary">Batal</a>                
+                            <button type="submit" class="btn btn-primary">
+                                Simpan
+                            </button>
                         </div>
                     </form>
 				</div>

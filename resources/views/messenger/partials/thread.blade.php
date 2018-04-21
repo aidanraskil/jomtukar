@@ -1,17 +1,17 @@
 <?php 
-	$class = $thread->isUnread(Auth::id()) ? 'bg-info' : '';
+	// $class = $thread->isUnread(Auth::id()) ? 'bg-info' : '';
 	setlocale(LC_TIME, 'My');
 	Carbon\Carbon::setLocale('ms');
+	$dia = App\User::where('name', $thread->participantsString(Auth::id()))->first();
 ?>
-<li class="media p-2 {{ $class }}">
-	<img class="mavatar align-self-center mr-3" style="border: 1px solid #dfdfdf;" src="{{ $thread->creator()->thumbvatar }}" alt="Generic placeholder image">
+<li class="media p-2">
+	<img class="mavatar align-self-center mr-3" style="border: 1px solid #dfdfdf;" src="{{ $dia->thumbvatar }}" alt="Generic placeholder image">
 	<div class="media-body">
 		<strong>
 			<a href="{{ route('messages.show', $thread->id) }}">
-				 {{ $thread->subject }} ({{ $thread->userUnreadMessagesCount(Auth::id()) }} unread)
+				 {{ $thread->participantsString(Auth::id()) }} @if($thread->userUnreadMessagesCount(Auth::id()) > 0)<span class="badge badge-pill badge-danger">{{ $thread->userUnreadMessagesCount(Auth::id()) }}</span>@endif
     		</a>
     	</strong><br>
-    	<small>
-    	Dicipta <strong>{{ $thread->creator()->name }}</strong> pada {{ $thread->created_at->diffForHumans() }}</small>
+    	<small>{{ $thread->created_at->diffForHumans() }}</small>
     </div>
 </li>

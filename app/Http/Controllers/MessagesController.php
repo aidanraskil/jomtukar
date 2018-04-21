@@ -14,6 +14,16 @@ use Illuminate\Http\Request;
 
 class MessagesController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
     	// All threads, ignore deleted/archived participants
@@ -22,9 +32,26 @@ class MessagesController extends Controller
         $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
         // All threads that user is participating in, with new messages
          // $threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
-        // $users = User::where('id', '!=', Auth::id())->get();
+         // $users = User::where('id', '!=', Auth::id())->get();
 
-        return view('messenger.index', compact('threads', 'users'));
+        // $users = User::
+
+         return view('messenger.index', compact('threads', 'users'));
+    }
+
+
+    /**
+     * Creates a new message thread.
+     *
+     * @return mixed
+     */
+    public function create()
+    {
+        $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
+
+        $users = User::where('id', '!=', Auth::id())->get();
+
+        return view('messenger.create', compact('users', 'threads'));
     }
 
     public function store()
@@ -32,7 +59,7 @@ class MessagesController extends Controller
     	$input = Input::all();
 
     	$thread = Thread::create([
-            'subject' => $input['subject'],
+            'subject' => Auth::id(),
         ]);
         // Message
         Message::create([
@@ -78,7 +105,9 @@ class MessagesController extends Controller
 
         $thread->markAsRead($userId);
 
-        return view('messenger.show', compact('thread', 'users'));
+        $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
+
+        return view('messenger.show', compact('thread', 'threads', 'users'));
     }
 
      public function update($id)
@@ -101,7 +130,9 @@ class MessagesController extends Controller
             'thread_id' => $thread->id,
             'user_id' => Auth::id(),
         ]);
+
         $participant->last_read = new Carbon;
+
         $participant->save();
         // Recipients
         if (Input::has('recipients')) {
