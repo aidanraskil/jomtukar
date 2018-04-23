@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="Hub pertukaran suka sama suka pegawai-pegawai jabatan kerajaan.">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -21,6 +21,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2677697660465422",
+        enable_page_level_ads: true
+      });
+    </script>
 </head>
 <body>
     <div id="app">
@@ -48,7 +55,7 @@
                         @else
                         	<li><a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Utama</a></li>
                         	<li><a class="nav-link {{ Request::is('pertukaran') ? 'active' : '' }}" href="{{ route('profile.index') }}">Pertukaran</a></li>
-                            <li><a class="nav-link {{ Request::is('mesej') ? 'active' : '' }}" href="/mesej/create">Messages @include('messenger.unread-count')</a></li>
+                            <li><a class="nav-link {{ Request::is('mesej') ? 'active' : '' }}" href="/mesej">Messages @include('messenger.unread-count')</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 	  <img src="{{ Auth::user()->avatar }}" class="d-inline-block align-top photo" alt="">
@@ -74,7 +81,7 @@
             </div>
         </nav>
 		 @include('flash::message')
-        <main class="py-4">
+        <main class="pt-4">
             @yield('content')
         </main>
     </div>

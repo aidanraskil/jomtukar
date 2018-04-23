@@ -132,7 +132,10 @@ class ProfileController extends Controller
     public function edit()
     {
         $profile = Auth::user()->profiles->first();
-        return view('profil.edit', compact('profile'));
+
+        $states = State::all();        
+
+        return view('profil.edit', compact('profile', 'states'));
     }
 
     /**

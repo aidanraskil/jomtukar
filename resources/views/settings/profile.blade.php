@@ -70,7 +70,9 @@
 			<div class="card">
 				<div class="card-header">
 					Profil Pertukaran
+					@if($user->profiles->count() < 0)
 					<a href="{{ route('profile.create') }}" class="btn btn-primary btn-sm float-sm-right">Cipta</a>
+					@endif
 				</div>
 				@if($user->profiles->count() > 0)
 					<div class="list-group list-group-flush">

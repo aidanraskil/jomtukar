@@ -9994,6 +9994,24 @@ a.text-dark:focus {
   }
 }
 
+.btn-kuning {
+  color: #17a2b8;
+  background-color: #ffff00;
+  border-color: #ffff00;
+}
+
+.btn-kuning:hover {
+  color: #fff;
+  background-color: #ffef00;
+  border-color: #ffef00;
+}
+
+.btn-kuning:focus,
+.btn-kuning.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
 .alert {
   border-radius: unset;
 }
@@ -10111,6 +10129,7 @@ a.card[disabled] {
   color: #24292e;
   cursor: default;
   border-bottom-color: #dfdfdf;
+  border-top-color: #dfdfdf;
   background-color: #fff;
 }
 

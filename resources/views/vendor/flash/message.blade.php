@@ -9,7 +9,7 @@
         <div class="alert
                     alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
-                    role="alert"
+                    role="alert" style="margin-bottom: 0px;" 
         >
         	<div class="container">
             @if ($message['important'])

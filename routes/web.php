@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('guest');
+})->middleware('guest')->name('welcome');
 
 Auth::routes();
 
@@ -25,10 +25,15 @@ Route::group(['prefix' => 'mesej'], function () {
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/utama', 'HomeController@index')->name('home');
 Route::get('/tetapan/profil', 'SettingController@getProfile')->name('profile.edit');
 Route::put('/tetapan/profil', 'SettingController@postProfile')->name('profile.update');
+
 Route::post('/tetapan/gambar', 'SettingController@postPicture')->name('picture');
+
+Route::get('/tetapan/akaun', 'SettingController@getAccount')->name('account.edit');
+Route::put('/tetapan/akaun', 'SettingController@postAccount')->name('account.update');
+Route::delete('/tetapan/akaun', 'SettingController@destroy')->name('account.destroy');
 
 Route::get('/tetapan/profil/tambah', 'ProfileController@create')->name('profile.create');
 Route::get('/tetapan/profil/kemaskini', 'ProfileController@edit')->name('profile.kemaskini');
@@ -37,6 +42,8 @@ Route::post('/profil', 'ProfileController@store')->name('profile.store');
 
 Route::get('/pertukaran', 'ProfileController@index')->name('profile.index');
 Route::get('/{id}', 'ProfileController@show')->name('profile.show');
+
+Route::resource('/babi', 'BabiController');
 
 
 

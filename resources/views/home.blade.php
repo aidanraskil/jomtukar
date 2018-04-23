@@ -110,18 +110,7 @@
 			@endif
 		</div>
 		<div class="col-md-3">
-			<div class="card">
-				<div class="card-body text-center">
-					<small class="text-muted">
-						&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}
-					</small>
-				</div>
-{{-- 				<div class="card-footer bg-white text-center">
-					<small class="text-muted">
-						&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}
-					</small>
-				</div> --}}
-			</div>
+			@include('partials.rightbar')
 		</div>
 	</div>
 </div>
