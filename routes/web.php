@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest')->name('welcome');
+
+	$profiles = App\Profile::where('id', '!=', Auth::id())->latest()->get();
+
+    return view('welcome', compact('profiles'));
+})->name('welcome');
 
 Auth::routes();
 

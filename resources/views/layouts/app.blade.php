@@ -21,6 +21,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52229213-3"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-52229213-3');
+	</script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
@@ -53,7 +62,7 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
-                        	<li><a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Utama</a></li>
+                        	<li><a class="nav-link {{ Request::is('utama') ? 'active' : '' }}" href="{{ route('home') }}">Utama</a></li>
                         	<li><a class="nav-link {{ Request::is('pertukaran') ? 'active' : '' }}" href="{{ route('profile.index') }}">Pertukaran</a></li>
                             <li><a class="nav-link {{ Request::is('mesej') ? 'active' : '' }}" href="/mesej">Messages @include('messenger.unread-count')</a></li>
                             <li class="nav-item dropdown">

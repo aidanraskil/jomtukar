@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\User;   
+use App\User;
 use App\State;
 use App\Profile;
 use Cmgmyr\Messenger\Models\Thread;
@@ -33,9 +33,9 @@ class ProfileController extends Controller
 
     	$q = Profile::query();
 
-        if(Input::has('jawatan'))
+        if(Input::has('position'))
         {
-        	$q->where('position','like','%'.Input::get('jawatan').'%');
+        	$q->where('position','like','%'.Input::get('position').'%');
         }
 
         if(Input::has('state_from'))
@@ -43,7 +43,7 @@ class ProfileController extends Controller
         	$q->where('state_from', Input::get('state_from'));
         }
 
-        if(Input::has('state_to'))
+        if(Input::has('state_to') && Input::get('state_to') != '')
         {
         	$q->where('state_to', Input::get('state_to'));
         }
@@ -133,7 +133,7 @@ class ProfileController extends Controller
     {
         $profile = Auth::user()->profiles->first();
 
-        $states = State::all();        
+        $states = State::all();
 
         return view('profil.edit', compact('profile', 'states'));
     }
@@ -147,7 +147,12 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    	$user = User::findOrFail(Auth::id());
+       $profile = Profile::findOrFail($user->profiles->first()->id);
+
+        flash('Profil pertukaran anda telah berjaya dikemaskini')->success();
+
+        return back();
     }
 
     /**

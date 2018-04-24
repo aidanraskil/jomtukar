@@ -8,7 +8,7 @@
 		        <div class="col-md-12">
 		            <form class="row" action="{{ route('profile.index') }}">
 		                <div class="col-md-5 col-sm pr-sm-0">
-		                    <input type="text" name="jawatan" id="search" value="" placeholder="Jawatan" class="form-control">
+		                    <input type="text" name="position" id="search" value="" placeholder="Jawatan" class="form-control">
 		                </div>
 		                <div class="col-md-3 col-sm pr-sm-0">
 		                    <select name="state_from" id="state_from" class="form-control{{ $errors->has('state_from') ? ' is-invalid' : '' }}">

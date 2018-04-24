@@ -67,12 +67,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="card">
+			<div class="card mb-4">
 				<div class="card-header">
 					Profil Pertukaran
-					@if($user->profiles->count() < 0)
-					<a href="{{ route('profile.create') }}" class="btn btn-primary btn-sm float-sm-right">Cipta</a>
-					@endif
 				</div>
 				@if($user->profiles->count() > 0)
 					<div class="list-group list-group-flush">
@@ -83,8 +80,9 @@
 						@endforeach
 					</div>
 				@else
-					<div class="card-body">
-						
+					<div class="card-body text-center">
+						<p class="lead">Profil pertukaran anda tidak dijumpai</p>
+						<a href="{{ route('profile.create') }}" class="btn btn-primary">Cipta Profil Pertukaran</a>
 					</div>
 				@endif
 				</div>

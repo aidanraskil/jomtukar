@@ -13,12 +13,13 @@
 				<div class="card-body text-center">
 					<h4><strong>{{ $user->name }}</strong></h4>
 				@if($user->profiles->count() > 0)
-	
+
 						{{ $user->profiles->first()->position }} gred {{ $user->profiles->first()->grade }} {!! $user->profiles->first()->office ? 'di '.$user->profiles->first()->office : '' !!} <br>
 						{{ $user->profiles->first()->district_from }} &#8226; {{ $user->profiles->first()->statefrom->name }}
 					<br>
 					<i class="flaticon-repeat" data-toggle="tooltip" data-placement="top" title="Ingin bertukar ke"></i> <br>
 						{!! $user->profiles->first()->district_to ? $user->profiles->first()->district_to.' &#8226;' : '' !!}  {{ $user->profiles->first()->stateto->name }} <br>
+						@if($user->id != Auth::id())
 						<div style="position: relative;">
 							<a href="#" class="btn btn-primary mt-3">Mesej</a>
 							<div class="btn-group mt-3">
@@ -32,6 +33,7 @@
 								</div>
 							</div>
 						</div>
+						@endif
 					</div>
 					@if($user->profiles->first()->job_scope)
 						<div class="card-body text-center" style="border-top: 1px solid rgba(0, 0, 0, 0.125);">
@@ -46,16 +48,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-				<div class="card mb-4">
-					<div class="card-body">
-						<h3>Mesej</h3>
-						<hr>
-						<ul class="list-unstyled">
-						{{-- <ul class="list-group list-group-flush"> --}}
-	    				@each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')	
-	    				</ul>	
-    				</div>	
-				</div>
+			@include('partials.rightbar')
 		</div>
 	</div>
 @endsection
