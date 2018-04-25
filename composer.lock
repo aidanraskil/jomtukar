@@ -2408,16 +2408,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "7.1.6",
+            "version": "7.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "3683133d8c6a585225e7473d2a37c843de181e35"
+                "reference": "9030a3b6e962e0a4609ff389b773dbf959497cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3683133d8c6a585225e7473d2a37c843de181e35",
-                "reference": "3683133d8c6a585225e7473d2a37c843de181e35",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/9030a3b6e962e0a4609ff389b773dbf959497cef",
+                "reference": "9030a3b6e962e0a4609ff389b773dbf959497cef",
                 "shasum": ""
             },
             "require": {
@@ -2486,28 +2486,28 @@
                 "media",
                 "spatie"
             ],
-            "time": "2018-04-16T07:03:01+00:00"
+            "time": "2018-04-24T13:15:49+00:00"
         },
         {
             "name": "spatie/pdf-to-image",
-            "version": "1.2.2",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/pdf-to-image.git",
-                "reference": "9a5cb264a99e87e010c65d4ece03b51f821d55bd"
+                "reference": "a5f70c9d5d11677ba1fc3d7a0705d6dca4cc29db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/9a5cb264a99e87e010c65d4ece03b51f821d55bd",
-                "reference": "9a5cb264a99e87e010c65d4ece03b51f821d55bd",
+                "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/a5f70c9d5d11677ba1fc3d7a0705d6dca4cc29db",
+                "reference": "a5f70c9d5d11677ba1fc3d7a0705d6dca4cc29db",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
+                "ext-imagick": "*",
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
-                "scrutinizer/ocular": "~1.1"
+                "phpunit/phpunit": "^6.2"
             },
             "type": "library",
             "autoload": {
@@ -2536,7 +2536,7 @@
                 "pdf-to-image",
                 "spatie"
             ],
-            "time": "2016-12-14T15:37:00+00:00"
+            "time": "2018-04-03T11:51:11+00:00"
         },
         {
             "name": "spatie/temporary-directory",

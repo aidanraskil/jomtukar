@@ -24,17 +24,17 @@
 			<div class="card mb-5" style="border: none; box-shadow: 0 1px 6px 0 rgba(0,0,0,0.06);">
 				<div class="card-body ">
 					<div class="text-center">
-						<p><strong class="text-info">PROFIL PERTUKARAN TERKINI</strong></p>
+						<p style="margin-bottom: 0px;"><strong class="text-info">PROFIL PERTUKARAN TERKINI</strong></p>
 					</div>
-					<div class="row">
-						@foreach($profiles as $profile)
+					<div class="row mt-2">
+					@foreach($profiles as $profile)
 						<div class="col-md-6">
-							<a href="{{ route('profile.show', $profile->user->id) }}" class="card p-2" style="border: none; display: block;">
-							<strong>{{ $profile->position }}</strong> di {{ $profile->district_from }} <br>
-							<small class="text-muted">@if($profile->office)<i class="flaticon-home-2"></i> {{ $profile->office }}@endif <i class="flaticon-placeholder-3"></i> {{ $profile->statefrom->name }}</small>
-							</a>
+						<a href="{{ route('profile.show', $profile->user->id) }}" class="kotak">
+						<strong>{{ $profile->position }}</strong> di {{ $profile->district_from }} <br>
+						<small class="text-muted">@if($profile->office)<i class="flaticon-home-2"></i> {{ $profile->office }}@endif <i class="flaticon-placeholder-3"></i> {{ $profile->statefrom->name }}</small>
+						</a>
 						</div>
-						@endforeach
+					@endforeach
 					</div>
 				</div>
 			</div>

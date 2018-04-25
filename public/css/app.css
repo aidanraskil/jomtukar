@@ -9994,6 +9994,33 @@ a.text-dark:focus {
   }
 }
 
+.cox {
+  position: relative;
+  width: 100%;
+}
+
+.kotak {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+a.kotak {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a.kotak:hover {
+  background-color: #ededed;
+}
+
 .btn-kuning {
   color: #17a2b8;
   background-color: #ffff00;
