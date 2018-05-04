@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 
-	$profiles = App\Profile::where('id', '!=', Auth::id())->latest()->get();
+	$profiles = App\Profile::where('id', '!=', Auth::id())->latest()->take(6)->get();
 
     return view('welcome', compact('profiles'));
 })->name('welcome');

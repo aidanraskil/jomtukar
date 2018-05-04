@@ -22,7 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+   {{--      <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52229213-3"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
@@ -36,7 +36,7 @@
         google_ad_client: "ca-pub-2677697660465422",
         enable_page_level_ads: true
       });
-    </script>
+    </script> --}}
 </head>
 <body>
     <div id="app">
