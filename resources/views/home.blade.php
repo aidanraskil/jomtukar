@@ -8,7 +8,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="card hovercard">
+			<div class="card hovercard mb-4">
 				<div class="cardheader">
 				</div>
 				<div class="avatar text-center">
@@ -51,7 +51,7 @@
 								<li class="media p-2" style="border-bottom: solid #ededede;">
 									<img class="mavatar mr-2 mt-1" src="{{ $profile->user->thumbvatar }}" alt="Generic placeholder image">
 									<div class="media-body">
-										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br> 
+										<strong><a href="{{ route('profile.show', $profile->user->id) }}">{{ $profile->user->name }}</a></strong><br>
 										<span>{{ $profile->position }} gred {{ $profile->grade }} di {{ $profile->office }}</span><br>
 										<small>
 											{{ $profile->district_from }} &#8226; {{ $profile->statefrom->name }}

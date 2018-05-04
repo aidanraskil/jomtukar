@@ -23,7 +23,7 @@ class MessagesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
     	// All threads, ignore deleted/archived participants
@@ -45,13 +45,12 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function create()
+    public function create($id)
     {
         $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
 
-        $users = User::where('id', '!=', Auth::id())->get();
-
-        return view('messenger.create', compact('users', 'threads'));
+        $user = User::where('id', '!=', Auth::id())->where('id', $id)->first();
+        return view('messenger.create', compact('user', 'threads'));
     }
 
     public function store()
@@ -86,8 +85,8 @@ class MessagesController extends Controller
         try {
             $thread = Thread::findOrFail($id);
         } catch (ModelNotFoundException $e) {
-            flash('Thread dengan ID: ' . $id . ' tidak dijumpai.')->error();
-            return redirect()->route('messages');
+            // flash('Thread dengan ID: ' . $id . ' tidak dijumpai.')->error();
+            return redirect()->route('messages.create', $id);
         }
         // show current user in list if not a current participant
         // $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
@@ -98,7 +97,7 @@ class MessagesController extends Controller
         }
 
         $thread->getParticipantFromUser(Auth::id());
-        
+
         $userId = Auth::id();
 
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
@@ -139,5 +138,16 @@ class MessagesController extends Controller
             $thread->addParticipant(Input::get('recipients'));
         }
         return redirect()->route('messages.show', $id);
+    }
+
+    public function destroy($id)
+    {
+        $thread = Thread::findOrFail($id);
+
+        $thread->delete();
+
+        flash('Mesej telah berjaya dipadam')->success();
+
+        return redirect()->route('messages');
     }
 }

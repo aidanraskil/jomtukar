@@ -48,7 +48,7 @@
                                     <label for="office_from">Lokasi Pejabat Semasa</label>
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <select name="state_from" id="state_from" class="form-control{{ $errors->has('state_from') ? ' is-invalid' : '' }}">
+                                            <select name="state_from" id="state_from" class="form-control{{ $errors->has('state_from') ? ' is-invalid' : '' }} mb-1">
                                                 <option value=""  disabled selected>Negeri</option>
                                                 @foreach($states as $state)
                                                         <option value="{{ $state->id}}">{{ $state->name}}</strong></option>
@@ -74,7 +74,7 @@
                                     <label for="state_to">Lokasi Pejabat Diingini</label>
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <select name="state_to" id="state_to" class="form-control{{ $errors->has('state_to') ? ' is-invalid' : '' }}">
+                                            <select name="state_to" id="state_to" class="form-control{{ $errors->has('state_to') ? ' is-invalid' : '' }} mb-1">
                                                 <option value=""  disabled selected>Negeri</option>
                                                 @foreach($states as $state)
                                                         <option value="{{ $state->id}}">{{ $state->name}}</strong></option>
@@ -117,7 +117,7 @@
                             @endif
                         </div>
                         <div class="form-group float-right mb-0">
-                            <a href="{{ route('home') }}" class="btn btn-outline-secondary">Batal</a>                
+                            <a href="{{ route('home') }}" class="btn btn-outline-secondary">Batal</a>
                             <button type="submit" class="btn btn-primary">
                                 Simpan
                             </button>

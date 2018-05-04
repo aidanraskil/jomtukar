@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hub pertukaran suka sama suka pegawai-pegawai jabatan kerajaan.">
+    <meta name="description" content="Hub pertukar suka sama suka pegawai-pegawai jabatan kerajaan.">
+    <meta name="keywords" content="tukar suka sama suka,sumasu, pertukaran kakitangan kerajaan">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -27,7 +28,6 @@
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
-
 	  gtag('config', 'UA-52229213-3');
 	</script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

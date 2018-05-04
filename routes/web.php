@@ -22,10 +22,12 @@ Auth::routes();
 
 Route::group(['prefix' => 'mesej'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    // Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+    Route::get('kompos/{id}', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::delete('{id}/padam', ['as' => 'messages.destroy', 'uses' => 'MessagesController@destroy']);
 });
 
 Route::get('/utama', 'HomeController@index')->name('home');

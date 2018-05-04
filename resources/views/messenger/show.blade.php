@@ -28,16 +28,17 @@
 	<div class="row">
 		<div class="col-md-9">
 			<div class="row">
-			<div class="kolum left"> 
-				<span class="lead"><strong>Mesej</strong></span>
-                    @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')   
+			<div class="kolum left">
+				<strong>Mesej</strong>
+				<ul class="list-unstyled mt-4">
+	              @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
+	            </ul>
 			</div>
 			<div class="kolum right">
 					<?php
 						$dia = App\User::where('name', $thread->participantsString(Auth::id()))->first();
 					?>
-					<span class="lead">
-						<strong>{{ $thread->participantsString(Auth::id()) }}</strong></span> <br>
+						<strong>{{ $thread->participantsString(Auth::id()) }}</strong><br>
 						<small>{{ $dia->profiles->first()->position }} {{ $dia->profiles->first()->office ? 'di '.$dia->profiles->first()->office : '' }}</small>
 					<hr>
 					<ul class="list-unstyled mt-4">
@@ -45,8 +46,8 @@
 		        	</ul>
 			        @include('messenger.partials.form-message')
 				</div>
-			</div>	
-			</div>       
+			</div>
+			</div>
 	    </div>
 	</div>
 </div>

@@ -88,7 +88,7 @@ class ProfileController extends Controller
 
         flash('Profil pertukaran anda telah berjaya dicipta dan diposkan')->success();
 
-        return back();
+        return redirect()->route('home');
     }
 
     /**

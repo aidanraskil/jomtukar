@@ -25,37 +25,25 @@
         <div class="col-md-9">
             <div class="row">
                 <div class="kolum left">
-                    <h3>Mesej</h3>
-                    @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')   
-                </div>       
+                    <strong>Mesej</strong>
+                    @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
+                </div>
                 <div class="kolum right">
                     <form action="{{ route('messages.store') }}" method="post">
                         {{ csrf_field() }}
-                        @if($users->count() > 0)
-                            <div class="checkbox">
-                                @foreach($users as $user)
-                                    <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                                                            value="{{ $user->id }}">{!!$user->name!!}</label>
-                                @endforeach
-                            </div>
-                        @endif  
-                        <!-- Subject Form Input -->
-                       {{--  <div class="form-group">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject"
-                                   value="{{ old('subject') }}">
-                        </div> --}}
-                        <!-- Message Form Input -->
-                        <div class="form-group">
+                        <input type="hidden" name="recipients[]" value="{{ $user->id }}">
+                        Kepada : <strong>{!!$user->name!!}</strong>
+                        <div class="form-group mt-3">
                             <textarea name="message" class="form-control" style="resize: none;" placeholder="Taipkan mesej anda">{{ old('message') }}</textarea>
-                        </div>                          
+                        </div>
                         <!-- Submit Form Input -->
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary form-control">Submit</button>
+                            <button type="submit" class="btn btn-primary float-right">Hantar</button>
                         </div>
                     </form>
-                </div> 
+                </div>
             </div>
-        </div>    
+        </div>
     </div>
 </div>
 @stop

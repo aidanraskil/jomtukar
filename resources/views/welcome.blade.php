@@ -26,16 +26,22 @@
 					<div class="text-center">
 						<p><strong class="text-info">PROFIL PERTUKARAN TERKINI</strong></p>
 					</div>
+					@if($profiles->count() > 0)
 					<div class="row">
 						@foreach($profiles as $profile)
-						<div class="col-md-6">
-							<a href="{{ route('profile.show', $profile->user->id) }}" class="card p-2" style="border: none; display: block;">
+						<div class="col-md-6 ">
+							<a href="{{ route('profile.show', $profile->user->id) }}" class="card p-2 mb-3" style="border: none; display: block;">
 							<strong>{{ $profile->position }}</strong> di {{ $profile->district_from }} <br>
 							<small class="text-muted">@if($profile->office)<i class="flaticon-home-2"></i> {{ $profile->office }}@endif <i class="flaticon-placeholder-3"></i> {{ $profile->statefrom->name }}</small>
 							</a>
 						</div>
 						@endforeach
 					</div>
+					@else
+					<div class="text-center text-muted">
+						<h3>Maaf, Tiada Profil Pertukaran Setakat Ini</h3>
+					</div>
+					@endif
 				</div>
 			</div>
 		</div>

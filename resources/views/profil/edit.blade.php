@@ -23,7 +23,7 @@
                                             <strong>{{ $errors->first('position') }}</strong>
                                         </span>
                                     @endif
-                                </div>  
+                                </div>
                                 <div class="form-group">
                                     <label for="grade" class="form-label">Gred</label>
                                     <input id="grade" type="text" class="form-control{{ $errors->has('grade') ? ' is-invalid' : '' }}" name="grade" value="{{ $profile->grade }}">
@@ -32,7 +32,7 @@
                                             <strong>{{ $errors->first('grade') }}</strong>
                                         </span>
                                     @endif
-                                </div>                              
+                                </div>
                                 <div class="form-group">
                                     <label for="office" class="form-label">Pejabat Semasa</label>
                                     <input id="office" type="text" class="form-control{{ $errors->has('office') ? ' is-invalid' : '' }}" name="office" value="{{ $profile->office }}" autofocus>
@@ -46,7 +46,7 @@
                                     <label for="office_from" class="form-label">Lokasi Pejabat Semasa</label>
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <select name="state_from" id="state_from" class="form-control{{ $errors->has('state_from') ? ' is-invalid' : '' }}">
+                                            <select name="state_from" id="state_from" class="form-control{{ $errors->has('state_from') ? ' is-invalid' : '' }} mb-4">
                                                 <option value=""  disabled selected>Negeri</option>
                                                 @foreach($states as $state)
                                                 	<option value="{{ $state->id}}" @if($profile->state_from == $state->id) selected="selected" @endif>{{ $profile->statefrom->name}}</option>
@@ -113,12 +113,12 @@
 		                                    <strong>{{ $errors->first('note') }}</strong>
 		                                </span>
 		                            @endif
-		                        </div>                            
+		                        </div>
 		                        <a href="" class="btn btn-danger float-right">Padam Profil Pertukaran</a>
 								<button type="submit" class="btn btn-primary">Kemaskini</button>
 								<a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary">Batal</a>
-							</div>   
-						</div>    
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

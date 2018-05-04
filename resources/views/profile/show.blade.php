@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
-			<div class="card hovercard">
+			<div class="card hovercard mb-3">
 				<div class="cardheader" style="height: 100px;">
 				</div>
 				<div class="avatar text-center" style="top: -70px; margin-bottom: -80px;">
@@ -21,15 +21,14 @@
 						{!! $user->profiles->first()->district_to ? $user->profiles->first()->district_to.' &#8226;' : '' !!}  {{ $user->profiles->first()->stateto->name }} <br>
 						@if($user->id != Auth::id())
 						<div style="position: relative;">
-							<a href="#" class="btn btn-primary mt-3">Mesej</a>
+							<a href="{{ route('messages.show', $user->id) }}" class="btn btn-primary mt-3">Mesej</a>
 							<div class="btn-group mt-3">
 								<button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Lagi...
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
+									<a class="dropdown-item" href="#">Lapor</a>
+									<a class="dropdown-item" href="#">Kongsi</a>
 								</div>
 							</div>
 						</div>
