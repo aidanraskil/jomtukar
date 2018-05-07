@@ -20,6 +20,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['prefix' => 'email'], function () {
+    Route::get('/', ['as' => 'email.index', 'uses' => 'EmailController@index']);	
+});
+
 Route::group(['prefix' => 'mesej'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
     // Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);

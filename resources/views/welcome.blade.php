@@ -26,24 +26,14 @@
 					<div class="text-center">
 						<p style="margin-bottom: 0px;"><strong class="text-info">PROFIL PERTUKARAN TERKINI</strong></p>
 					</div>
-<<<<<<< HEAD
 					@if($profiles->count() > 0)
-					<div class="row">
+					<div class="row mt-4">
 						@foreach($profiles as $profile)
 						<div class="col-md-6 ">
 							<a href="{{ route('profile.show', $profile->user->id) }}" class="card p-2 mb-3" style="border: none; display: block;">
 							<strong>{{ $profile->position }}</strong> di {{ $profile->district_from }} <br>
 							<small class="text-muted">@if($profile->office)<i class="flaticon-home-2"></i> {{ $profile->office }}@endif <i class="flaticon-placeholder-3"></i> {{ $profile->statefrom->name }}</small>
 							</a>
-=======
-					<div class="row mt-2">
-					@foreach($profiles as $profile)
-						<div class="col-md-6">
-						<a href="{{ route('profile.show', $profile->user->id) }}" class="kotak">
-						<strong>{{ $profile->position }}</strong> di {{ $profile->district_from }} <br>
-						<small class="text-muted">@if($profile->office)<i class="flaticon-home-2"></i> {{ $profile->office }}@endif <i class="flaticon-placeholder-3"></i> {{ $profile->statefrom->name }}</small>
-						</a>
->>>>>>> bd39429061b636b9cc50ce4059b17e524575a19e
 						</div>
 					@endforeach
 					</div>
